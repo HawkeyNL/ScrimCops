@@ -1,0 +1,31 @@
+{
+  "name": "hello-scrimcopsbot-beta",
+  "version": "0.0.1",
+  "description": "A simple Node app with SQLite as a database management system, instantly up and running.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite-pool": "^0.2.0",
+    "discord.js": "github:discordjs/discord.js",
+    "express": "^4.16.4",
+    "hastebin-gen": "^1.3.1",
+    "mysql": "^2.16.0",
+    "parse-ms": "^2.0.0",
+    "walk": "^2.3.14",
+    "moment": "^2.24.0",
+    "os": "^0.1.1",
+    "sqlite": "^3.0.2",
+    "moment-duration-format": "^2.2.2"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
