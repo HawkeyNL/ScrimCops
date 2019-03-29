@@ -1,14 +1,16 @@
 dependencies:
   better-sqlite-pool: 0.2.2
-  discord.js: github.com/discordjs/discord.js/1673b6f8f5bc53a30e2f2ef1123057d4e50c37c8
+  better-sqlite3: 5.4.0
+  common-tags: 1.8.0
+  dblapi.js: 2.3.0
+  discord.js: github.com/discordjs/discord.js/04fa56d0c07b66c77d0fdd6cb4419efb890043eb
+  enmap: 4.8.1
   express: 4.16.4
   hastebin-gen: 1.3.1
   moment: 2.24.0
   moment-duration-format: 2.2.2
-  mysql: 2.16.0
-  os: 0.1.1
   parse-ms: 2.0.0
-  sqlite: 3.0.2
+  sqlite: 3.0.3
   walk: 2.3.14
 packages:
   /abbrev/1.1.1:
@@ -115,10 +117,6 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-Uj1ZYOcq1GtFyFgJgqMVDoDLTy1B1pM9+bULnlX8szRX4cPjE/7JbKxCzQGhYlZlLkHQvtXXhCZ3skqsQ2byMA==
-  /bignumber.js/4.1.0:
-    dev: false
-    resolution:
-      integrity: sha512-eJzYkFYy9L4JzXsbymsFn3p54D+llV27oTQ+ziJG7WFRheJcNZilgVXMG0LoZtlQSKBsJdWtLFqOD0u+U0jZKA==
   /body-parser/1.18.3:
     dependencies:
       bytes: 3.0.0
@@ -171,6 +169,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-brWl9y6vOB1xYPZcpZde3N9zDByXTosAeMDo4p1wzo6UMOX4vumB+TP1RZ76sfE6Md68Q0NJSrE/gbezd4Ul+w==
+  /common-tags/1.8.0:
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    resolution:
+      integrity: sha512-6P6g0uetGpW/sdyUy/iQQCbFF0kWVMSIVSyYz7Zgjcgh8mgw8PQzDNZeyZ5DQ2gM7LBoZPHmnjz8rUthkBG5tw==
   /concat-map/0.0.1:
     dev: false
     resolution:
@@ -213,6 +217,10 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
+  /dblapi.js/2.3.0:
+    dev: false
+    resolution:
+      integrity: sha512-8uZQMBg1coJsL5SEN1oPj2dgjgfm0DW7FhP8XWnG2V/xcOJnQNM2kCId1g/pyqm8PYH9346olL1IrLJQ6m0wOg==
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -269,6 +277,14 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /enmap/4.8.1:
+    dependencies:
+      lodash: 4.17.11
+    dev: false
+    peerDependencies:
+      better-sqlite-pool: 'github:eslachance/better-sqlite-pool'
+    resolution:
+      integrity: sha512-VYe64/sws4BKSmHaRw/XsBVbIjBQfgqvrtm3wna97c6IbrUqD/mLpT6/6PPX4276XhyuZhdBirvGe2mFS/PfXg==
   /escape-html/1.0.3:
     dev: false
     resolution:
@@ -657,17 +673,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
-  /mysql/2.16.0:
-    dependencies:
-      bignumber.js: 4.1.0
-      readable-stream: 2.3.6
-      safe-buffer: 5.1.2
-      sqlstring: 2.3.1
-    dev: false
-    engines:
-      node: '>= 0.6'
-    resolution:
-      integrity: sha512-dPbN2LHonQp7D5ja5DJXNbCLe/HRdu+f3v61aguzNRQIrmZLOeRoymBYyeThrR6ug+FqzDL95Gc9maqZUJS+Gw==
   /nan/2.10.0:
     dev: false
     resolution:
@@ -705,7 +710,7 @@ packages:
       npmlog: 4.1.2
       rc: 1.2.8
       rimraf: 2.6.3
-      semver: 5.6.0
+      semver: 5.7.0
       tar: 4.4.8
     dev: false
     hasBin: true
@@ -781,10 +786,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
-  /os/0.1.1:
-    dev: false
-    resolution:
-      integrity: sha1-IIhF6J4ZOtTZcUdLk5R3NqVtE/M=
   /osenv/0.1.5:
     dependencies:
       os-homedir: 1.0.2
@@ -949,11 +950,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
-  /semver/5.6.0:
+  /semver/5.7.0:
     dev: false
     hasBin: true
     resolution:
-      integrity: sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
+      integrity: sha512-Ya52jSX2u7QKghxeoFGpLwCtGlt7j0oY9DYb5apt9nPlJ42ID+ulTXESnt/qAQcoSERyZ5sl3LDIOw0nAn/5DA==
   /send/0.16.2:
     dependencies:
       debug: 2.6.9
@@ -1013,14 +1014,14 @@ packages:
     optional: true
     resolution:
       integrity: sha1-PxFQiiWt384hejBCqdMAwxk7lv8=
-  /sqlite/3.0.2:
+  /sqlite/3.0.3:
     dependencies:
       sqlite3: 4.0.6
     dev: false
     optionalDependencies:
       sql-template-strings: 2.2.2
     resolution:
-      integrity: sha512-catQuNRzqiLcMBLKM4oSM+Toim9yrHKhsrh2iOgIvyOvKVOqXmOmOZpH3gnAecGCkqQ+DjbPCJczpJNnFzYq6Q==
+      integrity: sha512-DpofdtBibbiOObtdADGZYE6bvnLpjRG4ut/MDTDau2nK40htOLj1E0c55aOkvbnRVqQ0ZPtjj7PJuKKyS0Ypww==
   /sqlite3/4.0.6:
     dependencies:
       nan: 2.10.0
@@ -1030,12 +1031,6 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-EqBXxHdKiwvNMRCgml86VTL5TK1i0IKiumnfxykX0gh6H6jaKijAXvE9O1N7+omfNSawR2fOmIyJZcfe8HYWpw==
-  /sqlstring/2.3.1:
-    dev: false
-    engines:
-      node: '>= 0.6'
-    resolution:
-      integrity: sha1-R1OT/56RR5rqYtyvDKPRSYOn+0A=
   /sshpk/1.16.1:
     dependencies:
       asn1: 0.2.4
@@ -1217,17 +1212,17 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
-  /ws/6.2.0:
+  /ws/6.2.1:
     dependencies:
       async-limiter: 1.0.0
     dev: false
     resolution:
-      integrity: sha512-deZYUNlt2O4buFCa3t5bKLf8A7FPP/TVjwOeVNpw818Ma5nk4MLXls2eoEGS39o8119QIYxTrTDoPQ5B/gTD6w==
+      integrity: sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA==
   /yallist/3.0.3:
     dev: false
     resolution:
       integrity: sha512-S+Zk8DEWE6oKpV+vI3qWkaK+jSbIK86pCwe2IF/xwIpQ8jEuxpw9NyaGjmp9+BoJv5FV2piqCDcoCtStppiq2A==
-  github.com/discordjs/discord.js/1673b6f8f5bc53a30e2f2ef1123057d4e50c37c8:
+  github.com/discordjs/discord.js/04fa56d0c07b66c77d0fdd6cb4419efb890043eb:
     dependencies:
       form-data: 2.3.3
       node-fetch: 2.3.0
@@ -1235,7 +1230,7 @@ packages:
       prism-media: 1.0.1
       setimmediate: 1.0.5
       tweetnacl: 1.0.1
-      ws: 6.2.0
+      ws: 6.2.1
     dev: false
     engines:
       node: '>=10.0.0'
@@ -1249,20 +1244,22 @@ packages:
       zlib-sync: ^0.1.4
     resolution:
       registry: 'https://registry.npmjs.org/'
-      tarball: 'https://codeload.github.com/discordjs/discord.js/tar.gz/1673b6f8f5bc53a30e2f2ef1123057d4e50c37c8'
+      tarball: 'https://codeload.github.com/discordjs/discord.js/tar.gz/04fa56d0c07b66c77d0fdd6cb4419efb890043eb'
     version: 12.0.0-dev
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
-  better-sqlite-pool: ^0.2.0
+  better-sqlite-pool: ^0.2.2
+  better-sqlite3: ^5.4.0
+  common-tags: ^1.8.0
+  dblapi.js: ^2.3.0
   discord.js: 'github:discordjs/discord.js'
+  enmap: ^4.8.1
   express: ^4.16.4
   hastebin-gen: ^1.3.1
   moment: ^2.24.0
   moment-duration-format: ^2.2.2
-  mysql: ^2.16.0
-  os: ^0.1.1
   parse-ms: ^2.0.0
-  sqlite: ^3.0.2
+  sqlite: ^3.0.3
   walk: ^2.3.14

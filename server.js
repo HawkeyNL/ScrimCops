@@ -4,7 +4,6 @@ require('moment-duration-format');
 
 const manager = new ShardingManager('./client.js', { token: process.env.TOKEN, autoSpawn: true });
 manager.spawn(1);
-manager.on('launch', shard => console.log(`[Shard Manager] Launched ${shard.id}`));
 
 const http = require('http');
 const express = require('express');

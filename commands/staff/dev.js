@@ -38,63 +38,69 @@ class Dev extends Command {
               description: `You forgot to mention a member to set the verification. Please try again!`
             }});
             
-            message.channel.send(`Input to verify: ${args[2][0].toUpperCase() + args[2].slice(1)} for ${user}!`);
-            db.run(`UPDATE scrimCopsUser SET user_verified="${args[2][0].toUpperCase() + args[2].slice(1)}" WHERE user_id="${user.id}"`).then(row => {
+            db.get(`SELECT user_id FROM scrimCopsUser WHERE user_id="${user.id}"`).then(row => {
               if(!row) {
                 return message.channel.send({embed: {
                   color: this.client.color.red,
                   description: `${user} has not been registered yet.`
                 }});
               } else {
-                message.channel.send({embed: {
-                  color: this.client.color.green,
-                  description: `Succesfully updated **${user}'s** verification to **${args[2][0].toUpperCase()}**!`
-                }});
+                db.run(`UPDATE scrimCopsUser SET user_verified="${args[2][0].toUpperCase() + args[2].slice(1)}" WHERE user_id="${user.id}"`).then(row => {
+                    return message.channel.send({embed: {
+                      color: this.client.color.green,
+                      description: `Succesfully updated **${user}'s** verification to **${args[2][0].toUpperCase() + args[2].slice(1)}**!`
+                    }});              
+                });
               }
             });
             return;
           } else if(args[1] === 'rank') {
-            db.run().then(row => {
+            db.get(`SELECT user_id FROM scrimCopsUser WHERE user_id="${user.id}"`).then(row => {
               if(!row) {
                 return message.channel.send({embed: {
                   color: this.client.color.red,
                   description: `${user} has not been registered yet.`
                 }});
               } else {
-                
+
               }
             });
             return;
           } else if(args[1] === 'staff') {
-            db.run().then(row => {
+            db.get(`SELECT user_id FROM scrimCopsUser WHERE user_id="${user.id}"`).then(row => {
               if(!row) {
                 return message.channel.send({embed: {
                   color: this.client.color.red,
                   description: `${user} has not been registered yet.`
                 }});
               } else {
-                
+
               }
             });
             return;
           } else if(args[1] === 'beta') {
-            db.run().then(row => {
+            db.get(`SELECT user_id FROM scrimCopsUser WHERE user_id="${user.id}"`).then(row => {
               if(!row) {
                 return message.channel.send({embed: {
                   color: this.client.color.red,
                   description: `${user} has not been registered yet.`
                 }});
               } else {
-                
+
               }
             });
             return;
+          } else {
+            return message.channel.send({embed: {
+              color: this.client.color.red,
+              description: `You forgot to put in an option!\n\n**Options:**\n\`verify <{yes, no}> <@user>\``
+            }});
           }
           return;
         } else {
           return message.channel.send({embed: {
             color: this.client.color.red,
-            description: `You forgot to put in an option!\n\n**Options:**\n\`verify <{yes, no}> <@user>\``
+            description: `You forgot to put in an option!\n\n**Options:**\n\`set\``
           }});
         }
     }
