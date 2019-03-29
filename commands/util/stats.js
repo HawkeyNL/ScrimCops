@@ -22,6 +22,12 @@ class Stats extends Command {
   }
   
   async run(message, args) {
+        
+          const usage = Math.round((process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)),
+          cpu = Math.floor(process.cpuUsage().user/process.cpuUsage().system),
+          user = message.mentions.users.first() || message.author,
+          member = message.guild.member(user);
+    
           const promises = [
       		  this.client.shard.fetchClientValues('guilds.size'),
             this.client.shard.fetchClientValues('channels.size'),
@@ -29,14 +35,9 @@ class Stats extends Command {
       		];
           
           Promise.all(promises).then(async results => {
-                      const path = require('path');
+          const path = require('path');
           const dbPath = path.resolve(__dirname, '../../dataScrimCops.sqlite');
           await db.open(dbPath);
-
-      const usage = Math.round((process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)),
-            cpu = Math.floor(process.cpuUsage().user/process.cpuUsage().system),
-            user = message.mentions.users.first() || message.author;
-            const member = message.guild.member(user);
             
         let botEmbed = new Discord.MessageEmbed()
                           .setColor(this.client.color.main)
@@ -46,11 +47,10 @@ class Stats extends Command {
                           .addField(`Platform`, os.platform(), true)
                           .addField(`Memory Usage`, `${usage} MB`, true)
                           .addField(`CPU Usage`, `${cpu}%`, true)
-                          .addField(`Commands`, this.client.commands.size, true)
                           .addField(`Stable Bot Version`, this.client.version, true)
                           .addField(`Master Bot Version`, this.client.beta, true)
-                          .addField(`Bot Framework`, `discord.excord.js`, true)
                           .addField(`Discord.js`, Discord.version, true)
+                          .addField(`Client Extension`, `discord.excord.js`, true)
                           .addField(`Node.js`, process.version, true)
                           .addField(`Commands`, this.client.commands.size, true)
                           .addField(`Guilds`, results[0].reduce((prev, guildCount) => prev + guildCount, 0))
@@ -90,7 +90,7 @@ class Stats extends Command {
                           .setAuthor(user.tag[0].toUpperCase() + user.tag.slice(1), user.avatarURL())
                           .setThumbnail(user.avatarURL())
                           .addField(`ID`, user.id, true)
-                          .addField(`Game`, user.presence.game ? user.presence.game.name : 'No game found.', true)
+                          .addField(`Game`, user.presence.activity ? user.presence.activity.name : 'No game found.', true)
                           .addField(`Status`, user.presence.status, true)
                           .addField(`Bot`, user.bot === false ? 'No' : 'Yes', true)
                           .addField(`Nickname`, member.nickname !== null ? `${member.nickname}` : 'No nickname found.')

@@ -34,7 +34,7 @@ class User extends Command {
                         .setAuthor(user.tag[0].toUpperCase() + user.tag.slice(1), user.avatarURL())
                         .setThumbnail(user.avatarURL())
                         .addField(`ID`, user.id, true)
-                        .addField(`Game`, user.presence.game ? user.presence.game.name : 'No game found.', true)
+                        .addField(`Game`, user.presence.activity ? user.presence.activity.name : 'No game found.', true)
                         .addField(`Status`, user.presence.status, true)
                         .addField(`Bot`, user.bot === false ? 'No' : 'Yes', true)
                         .addField(`Nickname`, member.nickname !== null ? `${member.nickname}` : 'No nickname found.')
@@ -44,8 +44,10 @@ class User extends Command {
     
     db.get(`SELECT * FROM scrimCopsUser WHERE user_id="${user.id}"`).then(row => {
       
-      if(!row) {
-        message.channel.send({embed: {
+      if(user.bot === true) {
+        return message.channel.send(userEmbed);
+      } else if (!row) {
+        return message.channel.send({embed: {
           color: this.client.color.red,
           description: `${message.author} | **No ScrimCops Data Loaded**. You or ${user.toString()} hasn't been found in the database, please execute \`${this.client.prefix}register me\` to register.`
         }}).then(m => {

@@ -1,31 +1,24 @@
-Welcome to Glitch
-=================
+ScrimCops
+=========
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+Welcome to the officla github page of the discord bot called ScrimCops! This bot is made in the coding language javascript with the framework of discord.js, installed by npm and nodejs.
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+This bot is used by mobile gamers who play the game [Critical Ops](https://criticalopsgame.com/).
 
-Find out more [about Glitch](https://glitch.com/about).
+**WE ARE NOT ASSOCIATED WITH CRITICAL OPS WHATSOEVER!**
 
+Information
+===========
+View the statistics of the bot by doing `s.stats b` to see local information about ScrimCops.
 
-Your Project
-------------
+Invite
+======
+Invite ScrimCops by clicking [this link](https://discordapp.com/api/oauth2/authorize?client_id=539449430055583764&permissions=8&scope=bot)!
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
+Issues (Bugs)
+=============
+Please report issue on the issue tab above. A template is being worked on.
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-This app has a database!
-- this app uses sqlite but you can power your apps with [a number of other storage options](https://glitch.com/storage)
-- `sqlite.db` is created and put into the `.data` folder, a hidden directory whose contents aren’t copied when a project is remixed. you can see the contents of `.data` in the console under "Logs"
-
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ
+Support
+=======
+Click [here](https://discord.gg/CKBeeYs) to join our Discord server for the newest updates and bug reports.
