@@ -8,5 +8,6 @@ exports.run = (client) => {
         client.destroy();
     }, 5000);
     }
-    client.user.setActivity(`${client.prefix}help | ${client.prefix}register`, { type: 'WATCHING'});
+    client.user.setActivity(`${client.prefix}help • In Development • Stable v${client.version} • Beta v${client.beta}`, { type: 'STREAMING', url: 'https://twitch.tv/twitch' });
+    //client.user.setActivity(`${client.prefix}help | ${client.prefix}register`, { type: 'WATCHING'});
 }

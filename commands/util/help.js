@@ -46,8 +46,9 @@ class Help extends Command {
       
       if(message.author.id === this.client.owner) {
           embed.addField(`Enabled:`, cmd.enabled, true);
+          embed.addField(`Mod Only:`, cmd.modOnly, true);
           embed.addField(`Owner Only:`, cmd.ownerOnly, true);
-          embed.addField(`Beta:`, cmd.beta, true);
+          embed.addField(`Beta:`, cmd.beta);
       }
       return await message.channel.send(embed);
     }

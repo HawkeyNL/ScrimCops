@@ -28,17 +28,17 @@ class Db extends Command {
               //check if table exists before executing.
               await db.get(`SELECT * FROM scrimCopsUser WHERE user_id ="${message.author.id}"`).then(row => {
                   if(!row) {
+                    return message.channel.send({embed: {
+                      color: this.client.color.main,
+                      description: `Table you defined doesn't exist.`
+                    }});
+                  } else {
                     return db.run(`DROP TABLE scrimCopsUser`).then(() => {
                       message.channel.send({embed: {
                           color: this.client.color.main,
                           description: `Succesfully deleted the table \`scrimCopsUser\` in file \`data.sqlite\`, in \`${this.client.ws.ping}ms\`.`
                       }}).then(() => process.exit());
                     });
-                  } else {
-                    return message.channel.send({embed: {
-                      color: this.client.color.main,
-                      description: `Table you defined doesn't exist.`
-                    }});
                   }
               }).catch(error => {
                   console.log(error);

@@ -2,14 +2,6 @@ const Command = require("../../structures/Command.js");
 
 const db = require("sqlite");
 
-// const mysql = require('mysql');
-// const db = mysql.createConnection({
-//     host: 'n8.nodehost.ca',
-//     user: 'eorsy1_db',
-//     password: process.env.DBPASSWORD,
-//     database: 'eorsy1_db'
-// });
-
 class Register extends Command {
   constructor(client) {
       super({

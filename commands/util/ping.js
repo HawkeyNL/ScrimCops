@@ -29,7 +29,7 @@ class Ping extends Command {
             fields: [
               {
                 name: `Shard ${this.client.shard.id + 1}/${this.client.shard.count}`,
-                value: `${this.client.ws.ping}`
+                value: `${Math.round(this.client.ws.ping)}ms`
               }
             ]
           }});

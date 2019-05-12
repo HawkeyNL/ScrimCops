@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message) => {
     
-    if(message.content.startsWith(`<@!${process.env.ID}>`)) {
+    if(message.content.startsWith(`<@${process.env.ID}>`)) {
       return message.channel.send({embed: {
         color: client.color.main,
         description: `The prefix for <@${client.user.id}> is \`${client.prefix}\` !`,
@@ -28,14 +28,16 @@ exports.run = async (client, message) => {
       description: `This has currently been disabled, because of some issues.`
     }});
   
+    if(getCommand.modOnly === true && message.author.rank !== 'Moderator') return message.channel.send({embed: {
+      color: client.color.main,
+      description: `This command has mod only enabled. You can not execute this the command.`
+    }});
+  
     if(getCommand.ownerOnly === true && message.author.id !== client.owner) return message.channel.send({embed: {
       color: client.color.main,
       description: `This command has owner only enabled. You can not execute this the command.`
     }});
   
-    if(getCommand.modOnly === true && message.author.id !== (message.author.rank === 'Moderator')) {
-      return console.log('ModOnly is true!');
-    }
   
     // if(getCommand.beta === true && message.author.version === client.beta) {
     //   return console.log('Beta is true!');

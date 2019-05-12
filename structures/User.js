@@ -1,7 +1,4 @@
-const {
-    Structures,
-    MessageEmbed
-} = require('discord.js');
+const { Structures, MessageEmbed } = require('discord.js');
 
 const db = require("sqlite");
 const path = require('path');
@@ -17,19 +14,19 @@ Structures.extend('User', User => {
         }
 
       get isBeta() {
-        return db.get(`SELECT user_is_beta FROM scrimCopsUser WHERE user_id="${this.id}"`) || null;
+        return db.get(`SELECT user_is_beta FROM scrimCopsUser WHERE user_id="${this.id}"`) || console.log('No beta!');
       }
       
       get version() {
-        return db.get(`SELECT user_version FROM scrimCopsUser WHERE user_id="${this.id}"`) || null;
+        return db.get(`SELECT user_version FROM scrimCopsUser WHERE user_id="${this.id}"`) || console.log('No version!');
       }
       
       get rank() {
-        return db.get(`SELECT user_rank FROM scrimCopsUser WHERE user_id="${this.id}"`) || null;
+        return db.get(`SELECT user_rank FROM scrimCopsUser WHERE user_id="${this.id}"`) || console.log('No rank!');
       }
       
       get isStaff() {
-        return db.get(`SELECT user_is_staff FROM scrimCopsUser WHERE user_id="${this.id}"`) || null;
+        return db.get(`SELECT user_is_staff FROM scrimCopsUser WHERE user_id="${this.id}"`) || console.log('No staff!');
       }
     }
     return UserExtand; 
