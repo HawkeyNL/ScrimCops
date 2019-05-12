@@ -18,7 +18,7 @@ class Reboot extends Command {
     }
   
     async run(message, args) {
-        message.channel.send({embed: { color: this.client.color.green, description: `Succesfully rebooted with \`${this.client.ws.ping}ms\`.` }}).then(() => this.client.shard.respawnAll());
+        message.channel.send({embed: { color: this.client.color.green, description: `Succesfully rebooted with \`${Math.round(this.client.ws.ping)}ms\`.` }}).then(() => this.client.shard.respawnAll());
     }
 }
 

@@ -1,5 +1,6 @@
 const Command = require("../../structures/Command.js");
 const Discord = require("discord.js");
+const db = require("sqlite");
 
 class Mod extends Command {
     constructor(client) {
@@ -9,7 +10,7 @@ class Mod extends Command {
         usage: `${client.prefix}mod`,
         category: 'staff',
         enabled: true,
-        ownerOnly: false,
+        ownerOnly: true,
         modOnly: true,
         beta: false
       });
@@ -18,7 +19,27 @@ class Mod extends Command {
     }
   
     async run(message, args) {
-        message.channel.send({embed: { color: this.client.color.green, description: `Testing command.` }});
+        const path = require('path');
+        const dbPath = path.resolve(__dirname, '../../dataScrimCops.sqlite');
+        await db.open(dbPath);
+      
+        const user = message.mentions.users.first();
+      
+        if(args[0] === 'set') {
+          if(args[1] === 'verify') {
+               
+          } else {
+            return message.channel.send({embed: {
+              color: this.client.color.red,
+              description: `You forgot to put in an option!\n\n**Options:**\n\`verify <{yes, no}> <@user>\`\n\`rank <{pro, staff, moderator, administrator, developer}> <@user>\`\n\`staff <{yes, no}> <@user>\`\n\`beta <{yes, no}> <@user>\``
+            }});
+          }
+        } else {
+          return message.channel.send({embed: {
+            color: this.client.color.red,
+            description: `You forgot to put in an option!\n\n**Options:**\n\`set\``
+          }});
+        }
     }
 }
 

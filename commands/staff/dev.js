@@ -7,7 +7,7 @@ class Dev extends Command {
       super({
         name: 'dev',
         description: 'This command is used for the developers of the client.',
-        usage: `${client.prefix}dev`,
+        usage: `${client.prefix}dev <{set => {verify => [yes, no] user, rank => [rank] user, staff => [yes, no] user, beta => [yes, no] user}}>`,
         category: 'staff',
         enabled: true,
         ownerOnly: true,
